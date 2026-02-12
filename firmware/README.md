@@ -1,57 +1,67 @@
-# A2DP Tiny Radio - Arduino Firmware
+# A2DP Tiny Radio - Arduino Firmware / Arduinoファームウェア
 
-## Overview
+## Overview / 概要
+
 This firmware controls the A2DP FM Radio device using an ATmega328P microcontroller (Arduino Uno compatible).
 
-## Features
-- FM radio reception using RDA5807M
-- I2C communication with radio module and OLED display
-- UART communication with Bluetooth module
-- Button-based user interface
-- Preset station storage in EEPROM
-- Automatic station scanning
-- Bluetooth pairing mode
-- Signal strength display
+このファームウェアは、ATmega328Pマイクロコントローラ（Arduino Uno互換）を使用してA2DP FMラジオデバイスを制御します。
 
-## Hardware Requirements
+## Features / 機能
+
+- FM radio reception using RDA5807M / RDA5807Mを使用したFMラジオ受信
+- I2C communication with radio module and OLED display / ラジオモジュールとOLEDディスプレイとのI2C通信
+- UART communication with Bluetooth module / BluetoothモジュールとのUART通信
+- Button-based user interface / ボタンベースのユーザーインターフェース
+- Preset station storage in EEPROM / EEPROMでのプリセット局保存
+- Automatic station scanning / 自動局スキャン
+- Bluetooth pairing mode / Bluetoothペアリングモード
+- Signal strength display / 信号強度表示
+
+## Hardware Requirements / ハードウェア要件
+
 - ATmega328P @ 16MHz
-- RDA5807M FM radio module
-- SSD1306 OLED display (128x32)
-- JDY-64 Bluetooth module
-- 3 tactile buttons
+- RDA5807M FM radio module / FMラジオモジュール
+- SSD1306 OLED display (128x32) / OLEDディスプレイ
+- JDY-64 Bluetooth module / Bluetoothモジュール
+- 3 tactile buttons / 3つのタクタイルボタン
 
-## Software Dependencies
+## Software Dependencies / ソフトウェア依存関係
+
 Install the following libraries via Arduino IDE Library Manager:
 
-1. **Wire** (built-in) - I2C communication
-2. **Adafruit GFX Library** - Graphics library for display
-   - Version: 1.11.0 or later
-   - Author: Adafruit
-   - Install via: Sketch → Include Library → Manage Libraries → Search "Adafruit GFX"
+Arduino IDEライブラリマネージャーから以下のライブラリをインストールしてください：
 
-3. **Adafruit SSD1306** - OLED display driver
-   - Version: 2.5.7 or later
-   - Author: Adafruit
-   - Install via: Sketch → Include Library → Manage Libraries → Search "Adafruit SSD1306"
+1. **Wire** (built-in / 内蔵) - I2C communication / I2C通信
+2. **Adafruit GFX Library** - Graphics library for display / ディスプレイ用グラフィックスライブラリ
+   - Version / バージョン: 1.11.0 or later / 以降
+   - Author / 作者: Adafruit
+   - Install via / インストール方法: Sketch → Include Library → Manage Libraries → Search "Adafruit GFX"
 
-4. **EEPROM** (built-in) - Non-volatile memory storage
+3. **Adafruit SSD1306** - OLED display driver / OLEDディスプレイドライバ
+   - Version / バージョン: 2.5.7 or later / 以降
+   - Author / 作者: Adafruit
+   - Install via / インストール方法: Sketch → Include Library → Manage Libraries → Search "Adafruit SSD1306"
 
-## Pin Configuration
+4. **EEPROM** (built-in / 内蔵) - Non-volatile memory storage / 不揮発性メモリストレージ
 
-### Digital Pins
+## Pin Configuration / ピン構成
+
+### Digital Pins / デジタルピン
+
 ```
-Pin 0 (RX):  Bluetooth Module TX
-Pin 1 (TX):  Bluetooth Module RX
-Pin 2:       Button - Channel Up (with interrupt)
-Pin 3:       Button - Channel Down (with interrupt)
-Pin 6:       Button - Mode/Menu
-Pin 7:       Bluetooth KEY pin (pairing control)
+Pin 0 (RX):  Bluetooth Module TX / BluetoothモジュールTX
+Pin 1 (TX):  Bluetooth Module RX / BluetoothモジュールRX
+Pin 2:       Button - Channel Up (with interrupt) / ボタン - チャンネルアップ（割り込み付き）
+Pin 3:       Button - Channel Down (with interrupt) / ボタン - チャンネルダウン（割り込み付き）
+Pin 6:       Button - Mode/Menu / ボタン - モード/メニュー
+Pin 7:       Bluetooth KEY pin (pairing control) / Bluetooth KEYピン（ペアリング制御）
 ```
 
-### I2C Pins (Analog)
+### I2C Pins (Analog) / I2Cピン（アナログ）
+
 ```
-Pin A4 (SDA): I2C Data - RDA5807M & SSD1306
-Pin A5 (SCL): I2C Clock - RDA5807M & SSD1306
+Pin A4 (SDA): I2C Data - RDA5807M & SSD1306 / I2Cデータ
+Pin A5 (SCL): I2C Clock - RDA5807M & SSD1306 / I2Cクロック
 ```
 
 ## User Interface

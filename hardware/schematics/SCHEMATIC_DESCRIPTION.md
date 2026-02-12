@@ -1,43 +1,48 @@
-# A2DP Tiny Radio - Circuit Diagram Description
+# A2DP Tiny Radio - Circuit Diagram Description / 回路図説明
 
-## Circuit Overview
+## Circuit Overview / 回路概要
+
 This document describes the schematic design for the A2DP Tiny Radio. For the actual schematic files, see the KiCad project in `hardware/schematics/`.
 
-## Power Supply Section
+このドキュメントは、A2DP Tiny Radioの回路図設計について説明します。実際の回路図ファイルについては、`hardware/schematics/`のKiCadプロジェクトを参照してください。
 
-### USB-C Input
+## Power Supply Section / 電源セクション
+
+### USB-C Input / USB-C入力
+
 ```
-USB-C (J1) → D1 (SS34) → L1 (Ferrite) → C13 (47μF) → 5V Rail
+USB-C (J1) → D1 (SS34) → L1 (Ferrite) → C13 (47μF) → 5V Rail / 5Vレール
                                       ↓
-                                   GND Rail
+                                   GND Rail / GNDレール
 ```
 
-**Components:**
-- J1: USB-C receptacle (VBUS and GND pins only)
-- D1: Schottky diode (reverse polarity protection)
-- L1: Ferrite bead (noise filtering)
-- C13: Bulk capacitor (power supply smoothing)
+**Components / 部品:**
+- J1: USB-C receptacle (VBUS and GND pins only) / USB-Cレセプタクル（VBUSとGNDピンのみ）
+- D1: Schottky diode (reverse polarity protection) / ショットキーダイオード（逆極性保護）
+- L1: Ferrite bead (noise filtering) / フェライトビーズ（ノイズフィルタリング）
+- C13: Bulk capacitor (power supply smoothing) / バルクコンデンサ（電源平滑化）
 
-**Notes:**
-- USB-C CC pins not connected (power-only configuration)
-- Ferrite bead filters high-frequency noise from USB
-- Schottky diode provides low voltage drop protection
+**Notes / 注記:**
+- USB-C CC pins not connected (power-only configuration) / USB-C CCピンは未接続（電源のみの構成）
+- Ferrite bead filters high-frequency noise from USB / フェライトビーズはUSBからの高周波ノイズをフィルタリング
+- Schottky diode provides low voltage drop protection / ショットキーダイオードは低電圧降下保護を提供
 
-### 3.3V Regulator
+### 3.3V Regulator / 3.3Vレギュレータ
+
 ```
-5V → U4 (AMS1117-3.3) → C10 (10μF) → 3.3V Rail
+5V → U4 (AMS1117-3.3) → C10 (10μF) → 3.3V Rail / 3.3Vレール
             ↓ GND
 ```
 
-**Components:**
-- U4: AMS1117-3.3 LDO regulator (SOT-223)
-- C9: 10μF input capacitor
-- C10: 10μF output capacitor
+**Components / 部品:**
+- U4: AMS1117-3.3 LDO regulator (SOT-223) / LDOレギュレータ
+- C9: 10μF input capacitor / 入力コンデンサ
+- C10: 10μF output capacitor / 出力コンデンサ
 
-**Notes:**
-- Provides 3.3V for Bluetooth module and OLED
-- 800mA maximum current capability
-- Dropout voltage: ~1.2V
+**Notes / 注記:**
+- Provides 3.3V for Bluetooth module and OLED / BluetoothモジュールとOLED用の3.3Vを供給
+- 800mA maximum current capability / 最大電流容量800mA
+- Dropout voltage: ~1.2V / ドロップアウト電圧：約1.2V
 
 ## Microcontroller Section (ATmega328P)
 

@@ -1,43 +1,49 @@
-# 3D Printable Case Design - A2DP Tiny Radio
+# 3D Printable Case Design - A2DP Tiny Radio / 3Dプリント可能ケース設計 - A2DP Tiny Radio
 
-## Overview
+## Overview / 概要
+
 This document provides specifications and guidelines for designing a 3D printable case for the A2DP Tiny Radio device.
 
-## Case Dimensions
+このドキュメントは、A2DP Tiny Radioデバイス用の3Dプリント可能ケースを設計するための仕様とガイドラインを提供します。
 
-### External Dimensions
-- **Length**: 65mm (PCB 60mm + 2.5mm margin each end)
-- **Width**: 24mm (PCB 20mm + 2mm margin each side)
-- **Height**: 14mm (PCB 10mm + components clearance)
-- **Wall Thickness**: 2mm
-- **Form Factor**: USB memory stick style
+## Case Dimensions / ケース寸法
 
-### Internal Clearances
-- **PCB to case bottom**: 1mm
-- **PCB to case top**: 3mm (for component heights)
-- **PCB to case sides**: 2mm
-- **Component clearance**: Minimum 0.5mm all sides
+### External Dimensions / 外形寸法
 
-## Design Requirements
+- **Length / 長さ**: 65mm (PCB 60mm + 2.5mm margin each end / PCB 60mm + 各端2.5mmマージン)
+- **Width / 幅**: 24mm (PCB 20mm + 2mm margin each side / PCB 20mm + 各側2mmマージン)
+- **Height / 高さ**: 14mm (PCB 10mm + components clearance / PCB 10mm + 部品クリアランス)
+- **Wall Thickness / 壁厚**: 2mm
+- **Form Factor / フォームファクタ**: USB memory stick style / USBメモリスタイル
 
-### Functional Features
-1. **USB-C Port Opening**
-   - Location: Center of left end
-   - Size: 9mm x 3.5mm
-   - Depth: 6mm inset from edge
-   - Must allow full insertion of USB-C cable
+### Internal Clearances / 内部クリアランス
 
-2. **3.5mm Audio Jack Opening**
-   - Location: Center of right end
-   - Diameter: 6mm (for 3.5mm jack body)
-   - Depth: Through entire end panel
-   - Must allow earphone plug insertion
+- **PCB to case bottom / PCBからケース底部まで**: 1mm
+- **PCB to case top / PCBからケース上部まで**: 3mm (for component heights / 部品高さ用)
+- **PCB to case sides / PCBからケース側面まで**: 2mm
+- **Component clearance / 部品クリアランス**: Minimum 0.5mm all sides / 全側面最小0.5mm
 
-3. **Button Access**
-   - 3 buttons on top surface
-   - Button locations: 20mm, 30mm, 40mm from left edge
-   - Hole diameter: 5mm
-   - Depth: Through top panel
+## Design Requirements / 設計要件
+
+### Functional Features / 機能的特徴
+
+1. **USB-C Port Opening / USB-Cポート開口部**
+   - Location / 位置: Center of left end / 左端中央
+   - Size / サイズ: 9mm x 3.5mm
+   - Depth / 深さ: 6mm inset from edge / 端から6mm奥
+   - Must allow full insertion of USB-C cable / USB-Cケーブルの完全挿入を可能にする必要あり
+
+2. **3.5mm Audio Jack Opening / 3.5mmオーディオジャック開口部**
+   - Location / 位置: Center of right end / 右端中央
+   - Diameter / 直径: 6mm (for 3.5mm jack body / 3.5mmジャック本体用)
+   - Depth / 深さ: Through entire end panel / 端面パネル全体を貫通
+   - Must allow earphone plug insertion / イヤホンプラグの挿入を可能にする必要あり
+
+3. **Button Access / ボタンアクセス**
+   - 3 buttons on top surface / 上面に3つのボタン
+   - Button locations / ボタン位置: 20mm, 30mm, 40mm from left edge / 左端から20mm、30mm、40mm
+   - Hole diameter / 穴直径: 5mm
+   - Depth / 深さ: Through top panel / 上部パネルを貫通
    - Consider adding tactile caps or actuators
 
 4. **Display Window**

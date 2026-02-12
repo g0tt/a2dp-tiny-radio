@@ -1,30 +1,35 @@
-# PCB Design Guide - A2DP Tiny Radio
+# PCB Design Guide - A2DP Tiny Radio / PCB設計ガイド - A2DP Tiny Radio
 
-## Overview
+## Overview / 概要
+
 This document provides guidelines for designing the PCB for the A2DP Tiny Radio. The design targets JLCPCB manufacturing capabilities.
 
-## Board Specifications
+このドキュメントは、A2DP Tiny RadioのPCB設計に関するガイドラインを提供します。設計はJLCPCB製造能力を対象としています。
 
-### Dimensions
-- **Length**: 60mm
-- **Width**: 20mm
-- **Thickness**: 1.6mm (standard)
-- **Layers**: 2 (Top and Bottom)
+## Board Specifications / 基板仕様
 
-### Manufacturing Specs (JLCPCB Compatible)
+### Dimensions / 寸法
+
+- **Length / 長さ**: 60mm
+- **Width / 幅**: 20mm
+- **Thickness / 厚さ**: 1.6mm (standard / 標準)
+- **Layers / レイヤー数**: 2 (Top and Bottom / 表面と裏面)
+
+### Manufacturing Specs (JLCPCB Compatible) / 製造仕様（JLCPCB互換）
+
 ```
-PCB Material:        FR-4
-Layers:              2
-Thickness:           1.6mm
-Min Track Width:     0.2mm (8mil)
-Min Track Spacing:   0.2mm (8mil)
-Min Hole Size:       0.3mm
-Surface Finish:      HASL or ENIG
-Copper Weight:       1oz (35μm)
-Solder Mask:         Green (or Blue/Black)
-Silkscreen:          White
-Edge Connector:      No
-Gold Fingers:        No
+PCB Material / 基板材料:        FR-4
+Layers / レイヤー数:              2
+Thickness / 厚さ:           1.6mm
+Min Track Width / 最小配線幅:     0.2mm (8mil)
+Min Track Spacing / 最小配線間隔:   0.2mm (8mil)
+Min Hole Size / 最小穴サイズ:       0.3mm
+Surface Finish / 表面処理:      HASL or ENIG
+Copper Weight / 銅箔厚:       1oz (35μm)
+Solder Mask / ソルダーマスク:         Green (or Blue/Black) / 緑（または青/黒）
+Silkscreen / シルクスクリーン:          White / 白
+Edge Connector / エッジコネクタ:      No / なし
+Gold Fingers / 金メッキ指:        No / なし
 ```
 
 ## Layer Stack-up
