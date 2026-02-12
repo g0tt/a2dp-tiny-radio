@@ -45,27 +45,27 @@ USB-C (J1) → D1 (SS34) → L1 (Ferrite) → C13 (47μF) → 5V Rail / 5Vレー
 - 800mA maximum current capability / 最大電流容量800mA
 - Dropout voltage: ~1.2V / ドロップアウト電圧：約1.2V
 
-## Microcontroller Section (ATmega328P)
+## Microcontroller Section (ATmega328P) / マイクロコントローラセクション（ATmega328P）
 
-### Power and Clock
+### Power and Clock / 電源とクロック
 ```
 ATmega328P (U1):
 - VCC, AVCC → 5V (via C1, C2: 100nF)
 - GND, AGND → GND
 - XTAL1, XTAL2 → Y1 (16MHz) with C7, C8 (22pF to GND)
-- RESET → SW4 (optional) + R1 (10kΩ pull-up to 5V)
+- RESET → SW4 (optional / オプション) + R1 (10kΩ pull-up to 5V / 5Vへプルアップ)
 ```
 
-**Components:**
+**Components / 部品:**
 - U1: ATmega328P-AU (TQFP-32)
-- Y1: 16MHz crystal
-- C1, C2: 100nF decoupling capacitors
-- C7, C8: 22pF load capacitors for crystal
-- R1: 10kΩ reset pull-up
+- Y1: 16MHz crystal / 16MHz水晶振動子
+- C1, C2: 100nF decoupling capacitors / 100nFデカップリングコンデンサ
+- C7, C8: 22pF load capacitors for crystal / 水晶用22pF負荷コンデンサ
+- R1: 10kΩ reset pull-up / 10kΩリセットプルアップ
 
-### ISP Programming Header (Optional)
+### ISP Programming Header (Optional) / ISPプログラミングヘッダ（オプション）
 ```
-J3 (2x3 header):
+J3 (2x3 header / 2x3ヘッダ):
 Pin 1: MISO → PB4 (U1 pin 18)
 Pin 2: VCC → 5V
 Pin 3: SCK → PB5 (U1 pin 19)
@@ -102,83 +102,84 @@ RDA5807M (U2):
 - Earphone cable length provides optimal FM antenna (75-80cm) / イヤホンケーブルの長さが最適なFMアンテナを提供（75-80cm）
 - Earphone cable acts as FM antenna
 
-## Bluetooth Audio Section
+## Bluetooth Audio Section / Bluetooth音声セクション
 
-### JDY-64 Module Connections
+### JDY-64 Module Connections / JDY-64モジュール接続
 ```
 JDY-64 (U3):
 - VCC → 3.3V (via C4: 100nF)
 - GND → GND
 - TXD → PD0/RXD (U1 pin 2)
 - RXD → PD1/TXD (U1 pin 3)
-- KEY → PD7 (U1 pin 13) [Pairing control]
+- KEY → PD7 (U1 pin 13) [Pairing control / ペアリング制御]
 - STATE → LED2 (Blue) via R7 (1kΩ)
 ```
 
-**Components:**
-- U3: JDY-64 Bluetooth module
-- C4: 100nF decoupling
-- R7: 1kΩ LED current limiting
-- LED2: Blue LED (status indicator)
+**Components / 部品:**
+- U3: JDY-64 Bluetooth module (or XS3868 for A2DP) / JDY-64 Bluetoothモジュール（A2DP用にはXS3868）
+- C4: 100nF decoupling / 100nFデカップリング
+- R7: 1kΩ LED current limiting / 1kΩ LED電流制限
+- LED2: Blue LED (status indicator) / 青LED（状態インジケータ）
 
-**Notes:**
-- UART communication at 9600 baud (default)
-- KEY pin for entering pairing mode
-- STATE LED indicates connection status
-- Module internally routes FM audio to Bluetooth A2DP
+**Notes / 注記:**
+- UART communication at 9600 baud (default) / UART通信は9600ボー（デフォルト）
+- KEY pin for entering pairing mode / KEYピンはペアリングモード用
+- STATE LED indicates connection status / STATE LEDは接続状態を示す
+- For A2DP audio, use XS3868 module instead / A2DP音声にはXS3868モジュールを使用
+- Module internally routes FM audio to Bluetooth A2DP / モジュールは内部でFM音声をBluetooth A2DPにルーティング
 
-## Display Section (OLED)
+## Display Section (OLED) / ディスプレイセクション（OLED）
 
-### SSD1306 OLED Connections
+### SSD1306 OLED Connections / SSD1306 OLED接続
 ```
 OLED (U5):
 - VCC → 3.3V (via C5: 100nF)
 - GND → GND
-- SDA → PD4 (U1 pin 6) [Shared with RDA5807M]
-- SCL → PD5 (U1 pin 11) [Shared with RDA5807M]
+- SDA → PC4 (U1 pin 27, A4) [Shared with RDA5807M / RDA5807Mと共有]
+- SCL → PC5 (U1 pin 28, A5) [Shared with RDA5807M / RDA5807Mと共有]
 ```
 
-**Components:**
-- U5: 0.91" OLED (128x32, SSD1306)
-- C5: 100nF decoupling
+**Components / 部品:**
+- U5: 0.91" OLED (128x32, SSD1306) / 0.91インチOLED
+- C5: 100nF decoupling / 100nFデカップリング
 
-**Notes:**
-- I2C address: 0x3C (default for most SSD1306 modules)
-- Shares I2C bus with RDA5807M
-- 3.3V or 5V compatible (using 3.3V for power efficiency)
+**Notes / 注記:**
+- I2C address: 0x3C (default for most SSD1306 modules) / I2Cアドレス：0x3C（ほとんどのSSD1306モジュールのデフォルト）
+- Shares I2C bus with RDA5807M / RDA5807MとI2Cバスを共有
+- 3.3V or 5V compatible (using 3.3V for power efficiency) / 3.3Vまたは5V互換（電力効率のため3.3Vを使用）
 
-## User Interface Section
+## User Interface Section / ユーザーインターフェースセクション
 
-### Buttons
+### Buttons / ボタン
 ```
-SW1 (Channel Up):
+SW1 (Channel Up / チャンネルアップ):
 - One side → PD2 (U1 pin 4)
 - Other side → GND
-- Pull-up: R2 (10kΩ to 5V)
+- Pull-up: R2 (10kΩ to 5V) / プルアップ：R2（5Vへ10kΩ）
 
-SW2 (Channel Down):
+SW2 (Channel Down / チャンネルダウン):
 - One side → PD3 (U1 pin 5)
 - Other side → GND
-- Pull-up: R3 (10kΩ to 5V)
+- Pull-up: R3 (10kΩ to 5V) / プルアップ：R3（5Vへ10kΩ）
 
-SW3 (Mode/Pairing):
+SW3 (Mode/Pairing / モード/ペアリング):
 - One side → PD6 (U1 pin 12)
 - Other side → GND
-- Pull-up: Internal pull-up enabled in firmware
+- Pull-up: Internal pull-up enabled in firmware / プルアップ：ファームウェアで内部プルアップ有効化
 ```
 
-**Components:**
-- SW1, SW2, SW3: 6x6mm tactile switches
-- R2, R3: 10kΩ pull-ups
+**Components / 部品:**
+- SW1, SW2, SW3: 6x6mm tactile switches / 6x6mmタクタイルスイッチ
+- R2, R3: 10kΩ pull-ups / 10kΩプルアップ
 
-**Notes:**
-- Active-low logic (pressed = LOW)
-- Interrupt-capable pins for responsive UI
-- SW3 uses internal pull-up to save space
+**Notes / 注記:**
+- Active-low logic (pressed = LOW) / アクティブローロジック（押下=LOW）
+- Interrupt-capable pins for responsive UI / 応答性の高いUI用割り込み可能ピン
+- SW3 uses internal pull-up to save space / SW3は内部プルアップを使用してスペースを節約
 
-### Status LEDs
+### Status LEDs / 状態LED
 ```
-LED1 (Power):
+LED1 (Power / 電源):
 - Anode → 5V via R6 (1kΩ)
 - Cathode → GND
 
@@ -187,100 +188,105 @@ LED2 (Bluetooth):
 - Cathode → GND
 ```
 
-**Components:**
-- LED1: Red LED (power indicator)
-- LED2: Blue LED (Bluetooth status)
-- R6, R7: 1kΩ current limiting resistors
+**Components / 部品:**
+- LED1: Red LED (power indicator) / 赤LED（電源インジケータ）
+- LED2: Blue LED (Bluetooth status) / 青LED（Bluetooth状態）
+- R6, R7: 1kΩ current limiting resistors / 1kΩ電流制限抵抗器
 
-## Audio Routing
+## Audio Routing / 音声ルーティング
 
-### Audio Path
+### Audio Path / 音声経路
 ```
 RDA5807M LOUT/ROUT → C11/C12 (1μF) → J2 (3.5mm jack L/R)
                    ↓
-              JDY-64 Audio Input (internal routing)
+              XS3868 Audio Input (internal routing / 内部ルーティング)
                    ↓
-              Bluetooth A2DP transmission
+              Bluetooth A2DP transmission / Bluetooth A2DP伝送
 ```
 
-**Notes:**
-- Audio is output to both 3.5mm jack and Bluetooth simultaneously
-- For size optimization, can remove 3.5mm jack and use Bluetooth only
-- Earphone cable still needed as FM antenna
+**Notes / 注記:**
+- Audio is output to both 3.5mm jack and Bluetooth simultaneously / 音声は3.5mmジャックとBluetoothの両方に同時出力
+- For size optimization, can remove 3.5mm jack and use Bluetooth only / サイズ最適化のため、3.5mmジャックを削除してBluetoothのみを使用可能
+- Earphone cable still needed as FM antenna / FMアンテナとしてイヤホンケーブルは依然として必要
 
-## PCB Layout Considerations
+## PCB Layout Considerations / PCBレイアウト考慮事項
 
-### Ground Plane
-- Solid ground plane on bottom layer
-- Separate analog and digital grounds, connected at single point near power supply
-- Wide ground traces for return paths
+### Ground Plane / グランドプレーン
+- Solid ground plane on bottom layer / 底面レイヤーに無垢グランドプレーン
+- Separate analog and digital grounds, connected at single point near power supply / アナログとデジタルグランドを分離し、電源近くの1点で接続
+- Wide ground traces for return paths / リターンパス用の太いグランドトレース
 
-### Signal Routing
-- Keep I2C traces short and parallel
-- Route USB traces with controlled impedance (90Ω differential)
-- Keep antenna traces away from digital signals
-- Shield FM radio section from digital noise
+### Signal Routing / 信号ルーティング
+- Keep I2C traces short and parallel / I2Cトレースを短く平行に保つ
+- Route USB traces with controlled impedance (90Ω differential) / USB トレースは制御インピーダンス（90Ω差動）でルーティング
+- Keep antenna traces away from digital signals / アンテナトレースをデジタル信号から離す
+- Shield FM radio section from digital noise / FMラジオセクションをデジタルノイズからシールド
 
-### Component Placement
-- USB-C connector at one end
-- 3.5mm jack at opposite end
-- Group power components together
-- Place decoupling capacitors close to IC power pins
-- RDA5807M away from USB and high-speed signals
+### Component Placement / 部品配置
+- USB-C connector at one end / 一端にUSB-Cコネクタ
+- 3.5mm jack at opposite end / 反対端に3.5mmジャック
+- Group power components together / 電源部品をまとめる
+- Place decoupling capacitors close to IC power pins / デカップリングコンデンサをIC電源ピンの近くに配置
+- RDA5807M away from USB and high-speed signals / RDA5807MをUSBおよび高速信号から離す
 
-### Thermal Considerations
-- AMS1117 may require thermal relief
-- Provide adequate copper area for heat dissipation
-- Consider adding thermal vias under voltage regulator
+### Thermal Considerations / 熱管理考慮事項
+- AMS1117 may require thermal relief / AMS1117はサーマルリリーフが必要な場合あり
+- Provide adequate copper area for heat dissipation / 放熱のための十分な銅面積を確保
+- Consider adding thermal vias under voltage regulator / 電圧レギュレータの下にサーマルビアの追加を検討
 
-## Signal Characteristics
+## Signal Characteristics / 信号特性
 
-### I2C Bus
-- **Speed**: 100kHz (standard mode)
-- **Pull-up**: 4.7kΩ to 5V
-- **Devices**: RDA5807M (0x10/0x11), SSD1306 (0x3C)
+### I2C Bus / I2Cバス
+- **Speed / 速度**: 100kHz (standard mode / 標準モード)
+- **Pull-up / プルアップ**: 4.7kΩ to 3.3V / 3.3Vへ4.7kΩ
+- **Devices / デバイス**: RDA5807M (0x10/0x11), SSD1306 (0x3C)
 
-### UART Bus (Bluetooth)
-- **Baud Rate**: 9600 bps
-- **Data Bits**: 8
-- **Parity**: None
-- **Stop Bits**: 1
-- **Flow Control**: None
+### UART Bus (Bluetooth) / UARTバス（Bluetooth）
+- **Baud Rate / ボーレート**: 9600 bps
+- **Data Bits / データビット**: 8
+- **Parity / パリティ**: None / なし
+- **Stop Bits / ストップビット**: 1
+- **Flow Control / フロー制御**: None / なし
 
-### Audio Signal
-- **Level**: Line-level (~1Vrms)
-- **Impedance**: 32Ω (headphone)
-- **Frequency Response**: 50Hz - 15kHz
-- **Coupling**: AC-coupled (DC-blocking capacitors)
+### Audio Signal / 音声信号
+- **Level / レベル**: Line-level (~1Vrms) / ラインレベル
+- **Impedance / インピーダンス**: 32Ω (headphone / ヘッドホン)
+- **Frequency Response / 周波数応答**: 50Hz - 15kHz
+- **Coupling / 結合**: AC-coupled (DC-blocking capacitors) / AC結合（DCブロッキングコンデンサ）
 
-## Design Notes
+## Design Notes / 設計ノート
 
-### USB Noise Mitigation
-- Ferrite bead on power input
-- Bulk capacitor at USB input
-- Decoupling capacitors at each IC
-- Ground plane continuity
-- Separate analog/digital sections
+### USB Noise Mitigation / USBノイズ低減
+- Ferrite bead on power input / 電源入力にフェライトビーズ
+- Bulk capacitor at USB input / USB入力にバルクコンデンサ
+- Decoupling capacitors at each IC / 各ICにデカップリングコンデンサ
+- Ground plane continuity / グランドプレーンの連続性
+- Separate analog/digital sections / アナログ/デジタルセクションの分離
 
-### Antenna Design
-- 3.5mm jack tip/ring connected to RDA5807M antenna input
-- Earphone cable length provides optimal FM antenna length (75-80cm)
-- No external antenna needed
+### Antenna Design / アンテナ設計
+- 3.5mm jack tip/ring connected to RDA5807M antenna input / 3.5mmジャックのチップ/リングをRDA5807Mアンテナ入力に接続
+- Earphone cable length provides optimal FM antenna length (75-80cm) / イヤホンケーブルの長さが最適なFMアンテナ長を提供（75-80cm）
+- No external antenna needed / 外部アンテナ不要
 
-### Power Budget
+### Power Budget / 電力予算
 - ATmega328P: ~30mA @ 16MHz
 - RDA5807M: ~40mA
-- JDY-64: ~30mA (idle), ~80mA (transmitting)
+- XS3868/JDY-64: ~30mA (idle / アイドル), ~80mA (transmitting / 送信中)
 - OLED: ~20mA
-- Total: ~150mA typical, 250mA peak
+- Total / 合計: ~150mA typical / 標準, 250mA peak / ピーク
 
-## Schematic File Structure
+## Schematic File Structure / 回路図ファイル構造
+
 The complete schematic is available in KiCad format:
-- Main file: `hardware/schematics/a2dp_radio.kicad_sch`
-- Symbol library: `hardware/schematics/a2dp_radio.kicad_sym`
-- Project file: `hardware/schematics/a2dp_radio.kicad_pro`
 
-## Revision History
-| Version | Date | Changes |
+完全な回路図はKiCad形式で利用可能です：
+
+- Main file / メインファイル: `hardware/schematics/a2dp_radio.kicad_sch`
+- Symbol library / シンボルライブラリ: `hardware/schematics/a2dp_radio.kicad_sym`
+- Project file / プロジェクトファイル: `hardware/schematics/a2dp_radio.kicad_pro`
+
+## Revision History / 改訂履歴
+| Version / バージョン | Date / 日付 | Changes / 変更内容 |
 |---------|------|---------|
-| 1.0 | 2026-02-12 | Initial circuit design |
+| 1.0 | 2026-02-12 | Initial circuit design / 初期回路設計 |
+| 1.1 | 2026-02-12 | Fixed USB-C CC pins, I2C voltage levels, pin mappings / USB-C CCピン修正、I2C電圧レベル修正、ピンマッピング修正 |

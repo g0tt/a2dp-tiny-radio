@@ -129,11 +129,12 @@ Gold Fingers / 金メッキ指:        No / なし
    - Route as differential pair if possible
    - Keep away from digital signals
 
-4. **FM Antenna**
-   - 3.5mm jack to RDA5807M antenna input
-   - 0.3mm trace width
-   - Keep away from USB and high-speed signals
-   - Ground plane clearance around antenna trace
+4. **FM Antenna / FMアンテナ**
+   - 3.5mm jack to RDA5807M antenna input / 3.5mmジャックからRDA5807Mアンテナ入力へ
+   - 0.3mm trace width / 0.3mmトレース幅
+   - Keep away from USB and high-speed signals / USBおよび高速信号から離す
+   - Ground plane clearance around antenna trace / アンテナトレース周囲のグランドプレーンクリアランス
+   - **No PCB antenna pattern needed** / PCBアンテナパターン不要：The earphone cable serves as the FM antenna (75-80cm length is optimal for FM band). No dedicated PCB antenna trace or matching network required. / イヤホンケーブルがFMアンテナとして機能（75-80cm長がFM帯域に最適）。専用PCBアンテナトレースやマッチングネットワークは不要。
 
 5. **USB Power**
    - VBUS and GND from USB-C
