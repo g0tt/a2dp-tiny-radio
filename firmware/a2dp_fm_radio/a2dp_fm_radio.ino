@@ -63,6 +63,7 @@ uint8_t currentPreset = 0;
 bool btConnected = false;
 unsigned long lastButtonPress = 0;
 const unsigned long DEBOUNCE_DELAY = 50;
+String serialBuffer = "";  // Buffer for Bluetooth serial messages
 
 // Mode enumeration
 enum Mode {
@@ -418,10 +419,9 @@ void enterBluetoothPairing() {
 void checkBluetoothStatus() {
   // Read status from Bluetooth module via serial (non-blocking)
   // This is simplified - actual implementation depends on module
-  // JDY-64 sends status messages via UART
+  // XS3868/JDY-64 send status messages via UART
   while (Serial.available()) {
     char c = Serial.read();
-    static String serialBuffer = "";
     
     if (c == '\n' || c == '\r') {
       if (serialBuffer.length() > 0) {
@@ -435,13 +435,13 @@ void checkBluetoothStatus() {
         } else if (serialBuffer.indexOf("DISCONNECT") >= 0) {
           btConnected = false;
         }
-        serialBuffer = "";
+        serialBuffer = "";  // Clear buffer after processing
       }
     } else {
       serialBuffer += c;
       // Prevent buffer overflow
       if (serialBuffer.length() > 64) {
-        serialBuffer = "";
+        serialBuffer = "";  // Reset on overflow
       }
     }
   }
