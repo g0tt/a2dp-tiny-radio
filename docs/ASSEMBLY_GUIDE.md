@@ -1,41 +1,48 @@
-# A2DP Tiny Radio - Assembly Instructions
+# A2DP Tiny Radio - Assembly Instructions / 組み立て手順書
 
-## Overview
+## Overview / 概要
+
 This guide provides step-by-step instructions for assembling the A2DP Tiny Radio from components and PCB.
 
-## Safety Warnings
-⚠️ **IMPORTANT SAFETY INFORMATION**
-- Soldering iron operates at high temperature (350-400°C)
-- Work in well-ventilated area when soldering
-- Wear safety glasses when cutting component leads
-- Disconnect power before making any connections
-- Check polarity before connecting power supply
-- ICs are static-sensitive - use ESD precautions
+このガイドは、部品とPCBからA2DP Tiny Radioを組み立てるための段階的な手順を提供します。
 
-## Tools Required
+## Safety Warnings / 安全上の警告
 
-### Essential Tools
-- Soldering iron with fine tip (0.5mm or smaller)
-- Lead-free solder (0.5mm diameter)
-- Flux (rosin-based or no-clean)
-- Solder wick (desoldering braid)
-- Tweezers (fine-tip)
-- Wire cutters (flush cut)
-- Multimeter
-- Magnifying glass or microscope
+⚠️ **IMPORTANT SAFETY INFORMATION / 重要な安全情報**
+- Soldering iron operates at high temperature (350-400°C) / はんだごては高温で動作します（350-400°C）
+- Work in well-ventilated area when soldering / はんだ付け時は換気の良い場所で作業してください
+- Wear safety glasses when cutting component leads / 部品リード線を切る際は保護メガネを着用してください
+- Disconnect power before making any connections / 接続を行う前に電源を切断してください
+- Check polarity before connecting power supply / 電源を接続する前に極性を確認してください
+- ICs are static-sensitive - use ESD precautions / ICは静電気に敏感です - 静電気対策を使用してください
 
-### Recommended Tools
-- Hot air rework station (for QFN package)
-- Helping hands or PCB holder
-- Isopropyl alcohol (IPA) for cleaning
-- ESD mat and wrist strap
-- Solder paste (for QFN packages)
-- Temperature-controlled soldering iron
+## Tools Required / 必要な工具
 
-### Programming Tools
-- USB-UART adapter (for Arduino programming)
-- ISP programmer (for bootloader - optional)
-- USB-C cable and power supply (5V, 1A minimum)
+### Essential Tools / 必須工具
+
+- Soldering iron with fine tip (0.5mm or smaller) / 細先はんだごて（0.5mm以下）
+- Lead-free solder (0.5mm diameter) / 無鉛はんだ（直径0.5mm）
+- Flux (rosin-based or no-clean) / フラックス（ロジンベースまたはノークリーン）
+- Solder wick (desoldering braid) / はんだ吸取線
+- Tweezers (fine-tip) / ピンセット（細先）
+- Wire cutters (flush cut) / ニッパー（フラッシュカット）
+- Multimeter / テスター
+- Magnifying glass or microscope / 拡大鏡または顕微鏡
+
+### Recommended Tools / 推奨工具
+
+- Hot air rework station (for QFN package) / ホットエアーリワークステーション（QFNパッケージ用）
+- Helping hands or PCB holder / はんだ付け補助具またはPCBホルダー
+- Isopropyl alcohol (IPA) for cleaning / クリーニング用イソプロピルアルコール（IPA）
+- ESD mat and wrist strap / 静電気対策マットとリストストラップ
+- Solder paste (for QFN packages) / はんだペースト（QFNパッケージ用）
+- Temperature-controlled soldering iron / 温度制御はんだごて
+
+### Programming Tools / プログラミング工具
+
+- USB-UART adapter (for Arduino programming) / USB-UARTアダプタ（Arduinoプログラミング用）
+- ISP programmer (for bootloader - optional) / ISPプログラマ（ブートローダー用 - オプション）
+- USB-C cable and power supply (5V, 1A minimum) / USB-Cケーブルと電源（5V、1A以上）
 
 ## Component Preparation
 

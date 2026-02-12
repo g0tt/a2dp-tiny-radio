@@ -1,10 +1,12 @@
-# A2DP Tiny Radio - Appearance and Dimensions
+# A2DP Tiny Radio - Appearance and Dimensions / 外観と寸法
 
-## Device Overview
+## Device Overview / デバイス概要
 
 The A2DP Tiny Radio is a compact FM radio with Bluetooth A2DP output, designed in a USB memory stick form factor for ultimate portability.
 
-## External Dimensions
+A2DP Tiny Radioは、究極の携帯性を実現するUSBメモリスタイル形状に設計された、Bluetooth A2DP出力機能付きコンパクトFMラジオです。
+
+## External Dimensions / 外形寸法
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -26,14 +28,15 @@ The A2DP Tiny Radio is a compact FM radio with Bluetooth A2DP output, designed i
      ↓
 ```
 
-### Detailed Measurements
-- **Total Length**: 65mm (including USB-C connector protrusion)
-- **PCB Length**: 60mm
-- **Width**: 24mm (case), 20mm (PCB)
-- **Height**: 14mm (maximum with case)
-- **Weight**: ~15g (with case)
+### Detailed Measurements / 詳細寸法
 
-## Front View (Top Surface)
+- **Total Length / 全長**: 65mm (including USB-C connector protrusion / USB-Cコネクタ突起部を含む)
+- **PCB Length / PCB長**: 60mm
+- **Width / 幅**: 24mm (case / ケース), 20mm (PCB)
+- **Height / 高さ**: 14mm (maximum with case / ケース含む最大)
+- **Weight / 重量**: ~15g (with case / ケース含む)
+
+## Front View (Top Surface) / 前面図（上面）
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -49,25 +52,25 @@ The A2DP Tiny Radio is a compact FM radio with Bluetooth A2DP output, designed i
          10mm        ↔ 32mm ↔            20mm      spacing
 ```
 
-### Top Surface Elements
+### Top Surface Elements / 上面要素
 
-**1. LED Indicators (Left Side)**
-- Power LED (Red): 2mm diameter, 5mm from left edge
-- Bluetooth LED (Blue): 2mm diameter, 8mm from left edge
-- Vertical spacing: 3mm between LEDs
+**1. LED Indicators (Left Side) / LEDインジケータ（左側）**
+- Power LED (Red) / 電源LED（赤）: 2mm diameter / 直径2mm, 5mm from left edge / 左端から5mm
+- Bluetooth LED (Blue) / Bluetooth LED（青）: 2mm diameter / 直径2mm, 8mm from left edge / 左端から8mm
+- Vertical spacing / 垂直間隔: 3mm between LEDs / LED間3mm
 
-**2. Display Window (Center)**
-- Position: 10mm from left edge
-- Size: 32mm (L) x 14mm (H)
-- 0.91" OLED (128x32 pixels)
-- Displays: Frequency, signal strength, BT status
+**2. Display Window (Center) / ディスプレイウィンドウ（中央）**
+- Position / 位置: 10mm from left edge / 左端から10mm
+- Size / サイズ: 32mm (L) x 14mm (H)
+- 0.91" OLED (128x32 pixels / ピクセル)
+- Displays / 表示内容: Frequency, signal strength, BT status / 周波数、信号強度、BT状態
 
-**3. Control Buttons (Right Side)**
-- Button 1 (Channel Down): 42mm from left edge
-- Button 2 (Mode): 50mm from left edge  
-- Button 3 (Channel Up): 58mm from left edge
-- Button size: 5mm diameter holes
-- Label markings on case
+**3. Control Buttons (Right Side) / 操作ボタン（右側）**
+- Button 1 (Channel Down) / ボタン1（チャンネルダウン）: 42mm from left edge / 左端から42mm
+- Button 2 (Mode) / ボタン2（モード）: 50mm from left edge / 左端から50mm
+- Button 3 (Channel Up) / ボタン3（チャンネルアップ）: 58mm from left edge / 左端から58mm
+- Button size / ボタンサイズ: 5mm diameter holes / 直径5mm穴
+- Label markings on case / ケース上のラベル表示
 
 ## Left End View (USB-C Port)
 
