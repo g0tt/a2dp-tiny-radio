@@ -148,17 +148,27 @@ a2dp-tiny-radio/
 
 ## ドキュメント (Documentation)
 
-### 技術文書 (Technical Documents)
+### 🚀 Start Here / ここから始める
+- [**Getting Started Guide**](docs/GETTING_STARTED.md) - 製作を始める方はこちら！
+- [**Project Status**](PROJECT_STATUS.md) - Current status and next steps
+
+### 📖 Technical Documents / 技術文書
 - [技術仕様書 / Technical Specifications](docs/SPECIFICATIONS.md)
 - [回路図説明 / Circuit Description](hardware/schematics/SCHEMATIC_DESCRIPTION.md)
 - [部品表 / Bill of Materials](hardware/BOM.md)
 - [PCB設計ガイド / PCB Design Guide](hardware/pcb/PCB_DESIGN_GUIDE.md)
 - [外観・寸法 / Appearance & Dimensions](docs/APPEARANCE_AND_DIMENSIONS.md)
 
-### 組み立て・使用 (Assembly & Usage)
+### 🔧 Assembly & Usage / 組み立て・使用
 - [組み立てガイド / Assembly Guide](docs/ASSEMBLY_GUIDE.md)
+- [ユーザーマニュアル / User Manual](docs/USER_MANUAL.md)
 - [ファームウェア説明 / Firmware Documentation](firmware/README.md)
 - [ケース設計 / Case Design Guide](case/CASE_DESIGN_GUIDE.md)
+
+### 📂 Design Files / 設計ファイル
+- [Schematic Files](hardware/schematics/README.md) - KiCad schematic instructions
+- [PCB Files](hardware/pcb/README.md) - KiCad PCB layout instructions
+- [Case Files](case/README.md) - 3D CAD model instructions
 
 ## トラブルシューティング (Troubleshooting)
 

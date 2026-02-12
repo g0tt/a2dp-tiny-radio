@@ -1,0 +1,75 @@
+# KiCad
+*-backups/
+*.bak
+*~
+*.tmp
+fp-info-cache
+*.kicad_prl
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.net
+
+# 3D CAD
+*.SLDPRT
+*.SLDASM
+*.SLDDRW
+*.3dmbak
+*.FCStd1
+*.step1
+*.stl1
+
+# Arduino
+*.hex
+*.eep
+*.elf
+
+# Build artifacts
+build/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+
+# OS files
+.DS_Store
+Thumbs.db
+.directory
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+temp/
+tmp/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Documentation builds
+_build/
+*.pdf~
+
+# Backup files
+*.backup
+*_backup
+
+# Compressed files (except releases)
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Keep certain files
+!gerbers/*.zip
+!firmware/*.hex
+!docs/*.pdf
