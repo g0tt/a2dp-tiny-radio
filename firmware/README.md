@@ -94,21 +94,26 @@ The OLED displays:
 - Adjust frequency with up/down buttons
 - Listen to FM radio via Bluetooth or earphones
 
-### Scan Mode
-- Activated by long press on up/down buttons
-- Automatically searches for strong stations
-- Stops when signal strength > threshold (RSSI > 30)
+### Scan Mode / スキャンモード
+- Activated by long press on up/down buttons / アップ/ダウンボタンの長押しで起動
+- Automatically searches for strong stations / 強い局を自動検索
+- Stops when signal strength > threshold (RSSI > 30) / 信号強度が閾値を超えると停止（RSSI > 30）
 
-### Preset Mode
-- Store and recall favorite stations
-- Use up/down to select preset number
-- Long press mode button to save current frequency
+### Preset Mode / プリセットモード
+**Note: Preset functionality is included in code structure but not fully implemented in current version. CH+/CH- always tune frequency.**
 
-### Bluetooth Pairing Mode
-- Activated by long press on mode button (2s)
-- Device becomes discoverable
-- LED indicates pairing status
-- Auto-exits after 30 seconds or successful pairing
+**注：プリセット機能はコード構造に含まれていますが、現在のバージョンでは完全には実装されていません。CH+/CH-は常に周波数を調整します。**
+
+Future implementation will allow:
+- Store and recall favorite stations / お気に入りの局を保存・呼び出し
+- Use up/down to select preset number / アップ/ダウンでプリセット番号を選択
+- Long press mode button to save current frequency / モードボタンの長押しで現在の周波数を保存
+
+### Bluetooth Pairing Mode / Bluetoothペアリングモード
+- Activated by long press on mode button (2s) / モードボタンの長押し（2秒）で起動
+- Device becomes discoverable / デバイスが検出可能になる
+- LED indicates pairing status / LEDがペアリング状態を示す
+- Auto-exits when connection established or by pressing MODE again / 接続確立時またはMODEボタン再押下で自動終了
 
 ## EEPROM Memory Map
 ```

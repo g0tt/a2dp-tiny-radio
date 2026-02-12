@@ -5,11 +5,13 @@
  * Peripherals:
  *   - RDA5807M FM Radio (I2C)
  *   - SSD1306 OLED Display (I2C)
- *   - JDY-64 Bluetooth Module (UART)
+ *   - Bluetooth Module (UART): XS3868 recommended for A2DP audio
+ *     Note: JDY-64/HC-05 are UART serial only (no A2DP audio)
+ *           Use XS3868 or similar for Bluetooth audio streaming
  * 
  * Author: A2DP Radio Project
  * License: MIT
- * Version: 1.0
+ * Version: 1.1 - Fixed scan function, band config, non-blocking serial
  */
 
 #include <Wire.h>
@@ -149,7 +151,8 @@ void loop() {
   // Handle different modes
   switch (currentMode) {
     case MODE_SCAN:
-      performScan();
+      startScan(true);  // Scan upward by default
+      currentMode = MODE_NORMAL;  // Return to normal after starting scan
       break;
     case MODE_PRESET:
       // Preset mode handled by buttons
@@ -180,7 +183,7 @@ bool initRDA5807M() {
   Wire.beginTransmission(RDA5807M_ADDR);
   Wire.write(0x05); // Register 0x05
   Wire.write(0x88); // Volume, INT mode, I2S mode
-  Wire.write(0x8F); // Band: 87-108MHz, Space: 100kHz
+  Wire.write(0x2F); // Band: 76-108MHz, Space: 100kHz (matches FM_BAND_MIN 76.0)
   Wire.endTransmission();
   
   delay(100);
@@ -407,30 +410,39 @@ void enterBluetoothPairing() {
   
   updateDisplay();
   
-  // Wait for pairing (timeout after 30 seconds)
-  unsigned long startTime = millis();
-  while (millis() - startTime < 30000) {
-    if (btConnected) {
-      currentMode = MODE_NORMAL;
-      return;
-    }
-    delay(100);
-  }
-  
-  currentMode = MODE_NORMAL;
-  updateDisplay();
+  // Non-blocking pairing mode - returns to loop
+  // Pairing state will be checked in loop() via checkBluetoothStatus()
+  // User can exit pairing by pressing MODE button again
 }
 
 void checkBluetoothStatus() {
-  // Read status from Bluetooth module via serial
+  // Read status from Bluetooth module via serial (non-blocking)
   // This is simplified - actual implementation depends on module
   // JDY-64 sends status messages via UART
-  if (Serial.available()) {
-    String response = Serial.readStringUntil('\n');
-    if (response.indexOf("CONNECT") >= 0) {
-      btConnected = true;
-    } else if (response.indexOf("DISCONNECT") >= 0) {
-      btConnected = false;
+  while (Serial.available()) {
+    char c = Serial.read();
+    static String serialBuffer = "";
+    
+    if (c == '\n' || c == '\r') {
+      if (serialBuffer.length() > 0) {
+        // Process complete line
+        if (serialBuffer.indexOf("CONNECT") >= 0) {
+          btConnected = true;
+          if (currentMode == MODE_BT_PAIRING) {
+            currentMode = MODE_NORMAL;
+            updateDisplay();
+          }
+        } else if (serialBuffer.indexOf("DISCONNECT") >= 0) {
+          btConnected = false;
+        }
+        serialBuffer = "";
+      }
+    } else {
+      serialBuffer += c;
+      // Prevent buffer overflow
+      if (serialBuffer.length() > 64) {
+        serialBuffer = "";
+      }
     }
   }
 }
