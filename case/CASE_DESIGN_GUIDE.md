@@ -41,7 +41,7 @@ This document provides specifications and guidelines for designing a 3D printabl
 
 3. **Button Access / ボタンアクセス**
    - 3 buttons on top surface / 上面に3つのボタン
-   - Button locations / ボタン位置: 20mm, 30mm, 40mm from left edge / 左端から20mm、30mm、40mm
+   - Button locations / ボタン位置: 42mm, 50mm, 58mm from left edge / 左端から42mm、50mm、58mm
    - Hole diameter / 穴直径: 5mm
    - Depth / 深さ: Through top panel / 上部パネルを貫通
    - Consider adding tactile caps or actuators

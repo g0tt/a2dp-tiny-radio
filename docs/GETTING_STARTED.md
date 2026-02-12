@@ -8,11 +8,11 @@ This guide will help you get started with building your own A2DP Tiny Radio. Whe
 
 ## Quick Links / クイックリンク
 
-- [技術仕様 / Technical Specs](docs/SPECIFICATIONS.md)
-- [部品表 / Bill of Materials](hardware/BOM.md)
-- [回路図説明 / Circuit Description](hardware/schematics/SCHEMATIC_DESCRIPTION.md)
-- [組み立て手順 / Assembly Guide](docs/ASSEMBLY_GUIDE.md)
-- [ユーザーマニュアル / User Manual](docs/USER_MANUAL.md)
+- [技術仕様 / Technical Specs](SPECIFICATIONS.md)
+- [部品表 / Bill of Materials](../hardware/BOM.md)
+- [回路図説明 / Circuit Description](../hardware/schematics/SCHEMATIC_DESCRIPTION.md)
+- [組み立て手順 / Assembly Guide](ASSEMBLY_GUIDE.md)
+- [ユーザーマニュアル / User Manual](USER_MANUAL.md)
 
 ## Project Overview / プロジェクト概要
 

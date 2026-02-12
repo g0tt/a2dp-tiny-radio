@@ -74,7 +74,7 @@ Follow the connection diagram in `SCHEMATIC_DESCRIPTION.md`:
 **I2C Bus:**
 - ATmega328P SDA (PC4/A4) → RDA5807M SDA, OLED SDA
 - ATmega328P SCL (PC5/A5) → RDA5807M SCL, OLED SCL
-- 4.7kΩ pull-ups to 5V
+- 4.7kΩ pull-ups to 3.3V (important: match peripheral voltage levels)
 
 **UART:**
 - ATmega328P TX (PD1) → JDY-64 RX

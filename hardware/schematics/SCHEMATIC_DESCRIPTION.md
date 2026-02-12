@@ -17,13 +17,14 @@ USB-C (J1) → D1 (SS34) → L1 (Ferrite) → C13 (47μF) → 5V Rail / 5Vレー
 ```
 
 **Components / 部品:**
-- J1: USB-C receptacle (VBUS and GND pins only) / USB-Cレセプタクル（VBUSとGNDピンのみ）
+- J1: USB-C receptacle (power-only sink: VBUS, GND, CC1, CC2) / USB-Cレセプタクル（電源専用シンク：VBUS、GND、CC1、CC2）
 - D1: Schottky diode (reverse polarity protection) / ショットキーダイオード（逆極性保護）
 - L1: Ferrite bead (noise filtering) / フェライトビーズ（ノイズフィルタリング）
 - C13: Bulk capacitor (power supply smoothing) / バルクコンデンサ（電源平滑化）
+- R10, R11: 5.1kΩ resistors (CC pull-down, Rd) / 5.1kΩ抵抗器（CCプルダウン、Rd）
 
 **Notes / 注記:**
-- USB-C CC pins not connected (power-only configuration) / USB-C CCピンは未接続（電源のみの構成）
+- USB-C CC1 and CC2 pins each connected to GND through 5.1kΩ pull-down resistors (Rd) for default 5V sink configuration / USB-CのCC1とCC2ピンはそれぞれ5.1kΩプルダウン抵抗（Rd）を介してGNDに接続し、デフォルトの5Vシンク構成とする
 - Ferrite bead filters high-frequency noise from USB / フェライトビーズはUSBからの高周波ノイズをフィルタリング
 - Schottky diode provides low voltage drop protection / ショットキーダイオードは低電圧降下保護を提供
 
@@ -75,29 +76,30 @@ Pin 6: GND → GND
 
 ## FM Radio Section (RDA5807M)
 
-### Connections
+### Connections / 接続
 ```
 RDA5807M (U2):
 - VCC → 3.3V (via C3: 100nF)
 - GND → GND
-- SDA → PD4/SDA (U1 pin 6) + R4 (4.7kΩ to 5V)
-- SCL → PD5/SCL (U1 pin 11) + R5 (4.7kΩ to 5V)
+- SDA → PC4/SDA (U1 pin 27, A4) + R4 (4.7kΩ to 3.3V)
+- SCL → PC5/SCL (U1 pin 28, A5) + R5 (4.7kΩ to 3.3V)
 - RCLK → Y2 (32.768kHz crystal)
 - LOUT, ROUT → J2 (3.5mm jack) via C11, C12 (1μF coupling)
 - ANTENNA → J2 (3.5mm jack ring/tip)
 ```
 
-**Components:**
-- U2: RDA5807M FM receiver
-- Y2: 32.768kHz crystal (for RDA5807M internal clock)
-- C3: 100nF decoupling
-- R4, R5: 4.7kΩ I2C pull-ups
-- C11, C12: 1μF audio coupling capacitors
+**Components / 部品:**
+- U2: RDA5807M FM receiver / FMラジオ受信機
+- Y2: 32.768kHz crystal (for RDA5807M internal clock) / 32.768kHz水晶振動子（RDA5807M内部クロック用）
+- C3: 100nF decoupling / 100nFデカップリング
+- R4, R5: 4.7kΩ I2C pull-ups to 3.3V / 4.7kΩ I2Cプルアップ（3.3Vへ）
+- C11, C12: 1μF audio coupling capacitors / 1μF音声結合コンデンサ
 
-**Notes:**
-- 3.5mm jack serves dual purpose: audio output and FM antenna
-- I2C pull-ups on 5V rail (ATmega328P is 5V tolerant)
-- Audio output is DC-blocked with coupling capacitors
+**Notes / 注記:**
+- 3.5mm jack serves dual purpose: audio output and FM antenna / 3.5mmジャックは二重機能：音声出力とFMアンテナ
+- I2C pull-ups connected to 3.3V rail to match RDA5807M and OLED voltage levels / I2Cプルアップは3.3Vレールに接続し、RDA5807MとOLEDの電圧レベルに合わせる
+- Audio output is DC-blocked with coupling capacitors / 音声出力はカップリングコンデンサでDCブロックされている
+- Earphone cable length provides optimal FM antenna (75-80cm) / イヤホンケーブルの長さが最適なFMアンテナを提供（75-80cm）
 - Earphone cable acts as FM antenna
 
 ## Bluetooth Audio Section

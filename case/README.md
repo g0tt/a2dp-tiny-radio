@@ -64,7 +64,7 @@ Based on `CASE_DESIGN_GUIDE.md`, the case should meet these requirements:
    
 3. **Button Holes** (top surface)
    - 3 holes, 5mm diameter each
-   - Positions: 20mm, 30mm, 40mm from left edge
+   - Positions: 42mm, 50mm, 58mm from left edge
    
 4. **Display Window** (top surface)
    - Size: 32mm x 14mm

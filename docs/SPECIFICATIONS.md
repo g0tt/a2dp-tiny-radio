@@ -11,16 +11,22 @@ USBメモリサイズに設計された、Bluetooth A2DP音声出力機能付き
 - FM radio reception using RDA5807M module / RDA5807Mモジュールを使用したFMラジオ受信
 - Bluetooth A2DP audio output / Bluetooth A2DP音声出力
 - 3.5mm earphone jack (serves as antenna) / 3.5mmイヤホンジャック（アンテナとして機能）
-- Small LCD display for UI / UI用小型LCDディスプレイ
+- 0.91" OLED display (128x32) for UI / UI用0.91インチOLEDディスプレイ（128x32）
 - USB-C powered / USB-C電源
 - Arduino-compatible firmware / Arduino互換ファームウェア
 - Hand-solderable components only / 手はんだ可能な部品のみ
 
 ## Dimensions / 寸法
 
-- **Length / 長さ**: 60mm
-- **Width / 幅**: 20mm  
-- **Height / 高さ**: 10mm
+### PCB Dimensions / PCB寸法
+- **PCB Length / 基板長さ**: 60mm
+- **PCB Width / 基板幅**: 20mm  
+- **PCB Height / 基板高さ**: ~10mm (including components / 部品を含む)
+
+### Assembled Device Dimensions / 組立後デバイス寸法
+- **Total Length / 全長**: 65mm (including case / ケースを含む)
+- **Total Width / 全幅**: 24mm  
+- **Total Height / 全高**: 14mm
 - **Form Factor / フォームファクタ**: USB memory stick style / USBメモリスタイル
 
 ## Hardware Components / ハードウェア構成

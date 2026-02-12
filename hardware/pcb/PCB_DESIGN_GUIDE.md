@@ -279,7 +279,7 @@ File → Fabrication Outputs → BOM
 - [ ] All ground pins connected to ground plane
 - [ ] Decoupling capacitors placed near IC power pins
 - [ ] Pull-up/pull-down resistors on critical signals
-- [ ] Correct I2C pull-ups (4.7kΩ to 5V)
+- [ ] Correct I2C pull-ups (4.7kΩ to 3.3V for proper voltage levels with 3.3V peripherals) / 正しいI2Cプルアップ（3.3V周辺機器との適切な電圧レベルのため3.3Vへ4.7kΩ）
 - [ ] Series resistors on audio output
 - [ ] Reverse protection diode oriented correctly
 - [ ] LED current limiting resistors present

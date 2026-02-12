@@ -139,7 +139,8 @@ a2dp-tiny-radio/
 
 4. **ケース製作 (Case Fabrication - Optional)**
    - 3Dプリンタで出力 (3D print case)
-   - STLファイルは`case/`フォルダ内 (in case/ folder)
+   - ケース設計ガイドは`case/`フォルダ内（STLファイルは今後追加予定）
+   - Case design guide in `case/` folder (STL files to be added in future update)
    - PLA, PETG, ABS等で印刷可能
 
 5. **最終組み立て (Final Assembly)**
