@@ -31,10 +31,11 @@
 
 ## Module Components (Pre-assembled) / モジュール部品（組み立て済み）
 
-| Module / モジュール | Interface / インターフェース | Power / 電源 | Dimensions / 寸法 |
-|--------|-----------|-------|------------|
-| JDY-64 Bluetooth | UART (TX/RX) | 3.3V | 26.9 x 13 x 2.2mm |
-| SSD1306 OLED | I2C (SDA/SCL) | 3.3V-5V | 30 x 12 x 4mm |
+| Module / モジュール | Interface / インターフェース | Power / 電源 | Dimensions / 寸法 | Antenna / アンテナ |
+|--------|-----------|-------|------------|------------|
+| JDY-64 Bluetooth | UART (TX/RX) | 3.3V | 26.9 x 13 x 2.2mm | Built-in (no PCB antenna needed) / 内蔵（PCBアンテナ不要） |
+| XS3868 Bluetooth | UART (TX/RX) + Audio out | 3.3V | 28 x 13 x 2.3mm | Built-in (no PCB antenna needed) / 内蔵（PCBアンテナ不要） |
+| SSD1306 OLED | I2C (SDA/SCL) | 3.3V-5V | 30 x 12 x 4mm | N/A |
 
 ## Optional Components / オプション部品
 

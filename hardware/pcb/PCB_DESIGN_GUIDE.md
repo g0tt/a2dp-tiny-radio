@@ -136,7 +136,13 @@ Gold Fingers / 金メッキ指:        No / なし
    - Ground plane clearance around antenna trace / アンテナトレース周囲のグランドプレーンクリアランス
    - **No PCB antenna pattern needed** / PCBアンテナパターン不要：The earphone cable serves as the FM antenna (75-80cm length is optimal for FM band). No dedicated PCB antenna trace or matching network required. / イヤホンケーブルがFMアンテナとして機能（75-80cm長がFM帯域に最適）。専用PCBアンテナトレースやマッチングネットワークは不要。
 
-5. **USB Power**
+5. **Bluetooth Antenna / Bluetoothアンテナ**
+   - **No PCB antenna design needed** / PCBアンテナ設計不要：JDY-64 and XS3868 modules have built-in antennas (ceramic chip antenna or PCB trace antenna integrated on the module). You only need to route power and signal pins. / JDY-64およびXS3868モジュールには内蔵アンテナがあります（セラミックチップアンテナまたはモジュールに統合されたPCBトレースアンテナ）。電源と信号ピンをルーティングするだけです。
+   - Keep Bluetooth module away from metal case edges / Bluetoothモジュールを金属ケース端から離す
+   - Provide clearance around module (no ground pour directly under antenna area if specified in module datasheet) / モジュール周囲にクリアランスを確保（モジュールデータシートで指定されている場合、アンテナエリアの真下にグランドプランを配置しない）
+   - **Note**: If using ESP32 instead, you WOULD need to design a 2.4GHz antenna (PCB antenna or external antenna connector). This is why pre-made modules are simpler for hand-soldering projects. / 注：代わりにESP32を使用する場合、2.4GHzアンテナの設計が必要です（PCBアンテナまたは外部アンテナコネクタ）。これが、手はんだプロジェクトには既製モジュールがより簡単である理由です。
+
+7. **USB Power**
    - VBUS and GND from USB-C
    - 0.6mm trace width
    - Short and direct path to power section
